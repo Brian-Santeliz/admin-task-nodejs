@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title= nombre
+        link(rel="stylesheet", href="css/normalize.css")
+        link(rel="stylesheet", href="css/app.css")
+    body
+        include ../partials/header
+        main.contenedor
+            aside.contenedor-proyectos 
+                .panel.crear-proyecto
+                    a(href="/new" class="boton") Nuevo Proyecto
+                        span +
+                .panel.lista-proyectos
+                    h2 Proyectos 
+                    ul(class="proyectos" id="proyectos")
+                        li
+                            a(href="#") Creacion Frontend
+                        li 
+                            a(href="#") Creación Backend
+
+            block principal

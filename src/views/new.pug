@@ -1,0 +1,13 @@
+extends layout/index
+block principal
+    .contenido-principal
+        h1 #{nombre}
+        if(error)
+            each erro of error
+                .alerta.error= erro.error
+        form(action="/new" class="agregar-proyecto" method="POST")
+            .campo
+                label(for="nombre") Nombre del Proyecto:
+                input(type="text" id="nombre", name="titulo" placeholder="Escribe el titulo...", )
+            .campo.enviar
+                input(type="submit", value="Agregar proyecto", class="boton")
