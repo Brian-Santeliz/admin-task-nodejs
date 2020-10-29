@@ -10,4 +10,5 @@ router.post(
   [body("titulo").not().isEmpty().trim().escape()],
   controller.newPostController
 );
+router.get("/proyecto/:url", controller.proyectoGetController);
 module.exports = router;

@@ -4,8 +4,8 @@ html(lang="en")
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         title= nombre
-        link(rel="stylesheet", href="css/normalize.css")
-        link(rel="stylesheet", href="css/app.css")
+        link(rel="stylesheet", href="/css/normalize.css")
+        link(rel="stylesheet", href="/css/app.css")
     body
         include ../partials/header
         main.contenedor
@@ -16,9 +16,10 @@ html(lang="en")
                 .panel.lista-proyectos
                     h2 Proyectos 
                     ul(class="proyectos" id="proyectos")
-                        li
-                            a(href="#") Creacion Frontend
-                        li 
-                            a(href="#") Creación Backend
-
+                        if(proyectos)
+                            for proyecto of proyectos
+                                li
+                                    a(href=`/proyecto/${proyecto.url}`)= proyecto.titulo
+                       
             block principal
+            pre= helper.pretier(proyectos)
