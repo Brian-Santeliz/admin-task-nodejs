@@ -1,3 +1,5 @@
+const Proyecto = require("../models/Proyectos");
+
 class Home {
   homeController(req, res) {
     res.render("home", {
@@ -9,7 +11,7 @@ class Home {
       nombre: "Nuevo Proyecto",
     });
   }
-  newPostController(req, res) {
+  async newPostController(req, res) {
     const { titulo } = req.body;
 
     let error = [];
@@ -23,6 +25,9 @@ class Home {
       });
       return;
     }
+    await Proyecto.create({
+      titulo,
+    });
   }
 }
 module.exports = Home;

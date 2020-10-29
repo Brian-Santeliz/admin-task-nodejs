@@ -7,7 +7,7 @@ const Proyecto = database.define("proyecto", {
     primaryKey: true,
     autoIncrement: true,
   },
-  nombre: Sequelize.STRING,
+  titulo: Sequelize.STRING,
 
   url: Sequelize.STRING,
 });
