@@ -1,5 +1,4 @@
 const Proyecto = require("../models/Proyectos");
-
 class Home {
   homeController(req, res) {
     res.render("home", {
@@ -25,11 +24,11 @@ class Home {
       });
       return;
     }
-    //Sanitizar la ruta
-    //Agregar Slug - URL
-    // Crear el Hook
     await Proyecto.create({
       titulo,
+    });
+    res.render("new", {
+      nombre: "Nuevo Proyecto",
     });
   }
 }
