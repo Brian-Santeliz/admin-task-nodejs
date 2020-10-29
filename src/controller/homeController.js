@@ -25,6 +25,9 @@ class Home {
       });
       return;
     }
+    //Sanitizar la ruta
+    //Agregar Slug - URL
+    // Crear el Hook
     await Proyecto.create({
       titulo,
     });
