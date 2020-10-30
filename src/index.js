@@ -6,6 +6,7 @@ const routerHome = require("./router/");
 const database = require("./config");
 const Midleware = require("./middleware/helper");
 require("./models/Proyectos");
+require("./models/Tareas");
 dotenv.config({ path: "enviorement.env" });
 
 const app = express();

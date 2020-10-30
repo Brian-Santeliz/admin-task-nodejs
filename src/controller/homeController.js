@@ -126,7 +126,6 @@ class Home {
       const response = await Proyecto.destroy({
         where: { url },
       });
-      console.log(response);
       if (!response) return next();
       res.status(200).json("Proyecto eliminado correctamente");
     } catch (error) {

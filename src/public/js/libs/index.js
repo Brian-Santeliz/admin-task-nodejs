@@ -22,8 +22,8 @@ if (btn) {
           .then((respuesta) => {
             Swal.fire("Eliminado!", `${respuesta.data}`, "success");
             setTimeout(() => {
-              window.location.href = "/";
-            }, 2000);
+              location.href = "/";
+            }, 1000);
           })
           .catch(() => {
             Swal.fire(
