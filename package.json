@@ -4,12 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/"
+    "start":"concurrently \"npm run watch\" \"npm run dev\"",
+    "dev": "nodemon src/",
+    "watch": "webpack"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/core": "^7.12.3",
     "@babel/preset-env": "^7.12.1",
     "axios": "^0.21.0",
     "babel-loader": "^8.1.0",
@@ -26,11 +29,11 @@
     "sequelize": "^6.3.5",
     "shortid": "^2.2.16",
     "slug": "^4.0.1",
-    "sweetalert2": "^10.8.1",
-    "webpack": "^5.2.0",
-    "webpack-cli": "^4.1.0"
+    "sweetalert2": "^10.8.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.6"
+    "nodemon": "^2.0.6",
+    "webpack": "^5.2.0",
+    "webpack-cli": "^4.1.0"
   }
 }

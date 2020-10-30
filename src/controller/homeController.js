@@ -120,5 +120,15 @@ class Home {
       console.log(error);
     }
   }
+  async proyectoDeleteController(req, res) {
+    try {
+      const { url } = req.params;
+      await Proyecto.destroy({
+        where: { url },
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
 }
 module.exports = Home;

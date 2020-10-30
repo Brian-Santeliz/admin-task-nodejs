@@ -1,5 +1,11 @@
 const path = require("path");
 module.exports = {
+  mode: "development",
+  watch: true,
+  devtool: "inline-cheap-source-map",
+  watchOptions: {
+    ignored: ["node_modules/**"],
+  },
   entry: "./src/public/js/main.js",
   output: {
     filename: "app.js",

@@ -21,4 +21,5 @@ router.post(
   body("titulo").not().isEmpty().trim().escape(),
   controller.proyectoPostEditarController
 );
+router.delete("/proyecto/eliminar/:url", controller.proyectoDeleteController);
 module.exports = router;

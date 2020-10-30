@@ -1,1 +1,1 @@
-console.log("hOLA MINDO");
+import "./libs/index";
