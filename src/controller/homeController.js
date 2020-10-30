@@ -83,5 +83,42 @@ class Home {
       console.log(error);
     }
   }
+
+  async proyectoPostEditarController(req, res) {
+    try {
+      const { id } = req.params;
+      const { titulo } = req.body;
+      let error = [];
+      const [proyecto, proyectos] = await Promise.all([
+        Proyecto.findOne({
+          where: { id },
+        }),
+        Proyecto.findAll(),
+      ]);
+      if (!titulo) {
+        error.push({ error: "Agrega el titulo al proyecto" });
+      }
+      if (error.length > 0) {
+        res.render("new", {
+          nombre: `Editar Proyecto - ${proyecto.titulo}`,
+          error,
+          proyectos,
+          proyecto,
+        });
+        return;
+      }
+      await Proyecto.update(
+        {
+          titulo,
+        },
+        {
+          where: { id },
+        }
+      );
+      res.redirect("/");
+    } catch (error) {
+      console.log(error);
+    }
+  }
 }
 module.exports = Home;

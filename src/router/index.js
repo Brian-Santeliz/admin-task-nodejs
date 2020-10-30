@@ -16,4 +16,9 @@ router.post(
 //Rutas para los proyectos
 router.get("/proyecto/:url", controller.proyectoGetController);
 router.get("/proyecto/editar/:id", controller.proyectoGetEditarController);
+router.post(
+  "/proyecto/editar/:id",
+  body("titulo").not().isEmpty().trim().escape(),
+  controller.proyectoPostEditarController
+);
 module.exports = router;
