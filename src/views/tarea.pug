@@ -3,3 +3,9 @@ block principal
     .contenido-principal
         h1=`${nombre} - ${proyecto.titulo}`
         
+
+
+        
+        .contenedor-acciones
+            a(href=`/proyecto/editar/${proyecto.id}`, class="boton") Editar Proyecto
+            button(href="#", class="boton eliminar" id="eliminar-proyecto") Eliminar Proyecto

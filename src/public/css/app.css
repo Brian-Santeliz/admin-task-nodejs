@@ -329,6 +329,7 @@ form input[type="submit"]{
 }
 .contenedor-acciones .boton.eliminar {
     color: white;
+    margin-left: 1em;
 }
 .contenedor-acciones .boton {
     margin: 0;
