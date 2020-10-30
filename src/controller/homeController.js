@@ -120,12 +120,15 @@ class Home {
       console.log(error);
     }
   }
-  async proyectoDeleteController(req, res) {
+  async proyectoDeleteController(req, res, next) {
     try {
-      const { url } = req.params;
-      await Proyecto.destroy({
+      const { url } = req.query;
+      const response = await Proyecto.destroy({
         where: { url },
       });
+      console.log(response);
+      if (!response) return next();
+      res.status(200).json("Proyecto eliminado correctamente");
     } catch (error) {
       console.log(error);
     }

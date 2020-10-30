@@ -17,11 +17,21 @@ if (btn) {
     }).then((result) => {
       if (result.isConfirmed) {
         const peticion = `${location.origin}/proyecto/eliminar/${url}`;
-        axios.delete(peticion).then(console.log).catch(console.log);
-        Swal.fire("Eliminado!", "Este proyecto ha sido eliminado.", "success");
-        setTimeout(() => {
-          window.location.href = "/";
-        }, 1000);
+        axios
+          .delete(peticion, { params: { url } })
+          .then((respuesta) => {
+            Swal.fire("Eliminado!", `${respuesta.data}`, "success");
+            setTimeout(() => {
+              window.location.href = "/";
+            }, 2000);
+          })
+          .catch(() => {
+            Swal.fire(
+              "Ha ocurrido un error",
+              "No se pudo eliminar este proyecto",
+              "error"
+            );
+          });
       }
     });
   });
