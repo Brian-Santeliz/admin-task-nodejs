@@ -15,6 +15,8 @@ class Home {
     });
   }
   async newPostController(req, res) {
+    const proyectos = await Proyecto.findAll();
+
     const { titulo } = req.body;
 
     let error = [];
@@ -25,6 +27,7 @@ class Home {
       res.render("new", {
         nombre: "Nuevo Proyecto",
         error,
+        proyectos,
       });
       return;
     }
@@ -36,11 +39,11 @@ class Home {
   async proyectoGetController(req, res) {
     try {
       const { url } = req.params;
-      const proyecto = await Proyecto.findOne({
+      const promiseOne = Proyecto.findOne({
         where: { url },
       });
-      const proyectos = await Proyecto.findAll();
-
+      const promiseTwo = Proyecto.findAll();
+      const [proyecto, proyectos] = await Promise.all([promiseOne, promiseTwo]);
       if (!proyecto) return res.send("No existe este proyecto");
       res.render("tarea", {
         nombre: "Comienza Agregando Tarea",
