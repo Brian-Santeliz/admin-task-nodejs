@@ -5,13 +5,11 @@ class Tareas {
     try {
       const { url } = req.params;
       const { tarea } = req.body;
-      const [proyectos, proyecto] = await Promise.all([
-        Proyecto.findAll(),
-        Proyecto.findOne({
-          where: { url },
-        }),
-      ]);
+      const proyecto = await Proyecto.findOne({
+        where: { url },
+      });
       if (!tarea) {
+        const proyectos = await Proyecto.findAll();
         res.render("tarea", {
           error: "Agrega una tarea",
           proyecto,
@@ -25,7 +23,6 @@ class Tareas {
         estado: 0,
         proyectoId: proyecto.id,
       });
-      //en caso de que no se pueda agregar
       if (!insert) return next();
       res.redirect(`/proyecto/${proyecto.url}`);
     } catch (error) {
