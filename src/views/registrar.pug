@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        include ./partials/header
+    body.login
+        .contenedor-formulario
+            h1 Crear una cuenta
+            form(action="/registrar" method="POST" class="caja caja-login" id="formulario")
+                .campo
+                    label(for="email") Email
+                    input(type="email", name="email", id="email", placeholder="Escribe tu email")
+                .campo
+                    label(for="password") Password
+                    input(type="password", name="password", id="password", placeholder="Escribe tu password")
+
+                .campo.enviar
+                    input(class="boton", value="Enviar", type="submit")
+                .campo
+                    a(href="/login") ¿Ya tienes cuenta? Inicia Sesión
+    script(src="/build/app.js")

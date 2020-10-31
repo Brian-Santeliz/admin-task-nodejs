@@ -2,8 +2,10 @@ const { Router } = require("express");
 const { body } = require("express-validator");
 const Proyecto = require("../controller/proyectoController");
 const Tareas = require("../controller/tareaController");
+const Login = require("../controller/loginController");
 const proyectoController = new Proyecto();
 const tareaController = new Tareas();
+const loginController = new Login();
 const router = Router();
 
 router.get("/", proyectoController.homeController);
@@ -35,4 +37,7 @@ router.post(
 );
 router.patch("/tarea/actualizar/:id", tareaController.tareaPatchController);
 router.delete("/tarea/eliminar/:id", tareaController.tareaDeleteController);
+
+//RUTA PARA LOGIN Y REGISTER
+router.get("/registrar", loginController.loginGetRegistrar);
 module.exports = router;
