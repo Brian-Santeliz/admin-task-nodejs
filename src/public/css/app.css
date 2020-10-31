@@ -200,6 +200,7 @@ body.index {
     margin: 0 auto;
     padding: 2rem;
     color: white;
+    border-radius: 1em;
     transition: background-color .5s ease-in-out;
 }
 

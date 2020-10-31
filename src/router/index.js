@@ -1,25 +1,37 @@
 const { Router } = require("express");
-const Home = require("../controller/homeController");
 const { body } = require("express-validator");
-const controller = new Home();
+const Proyecto = require("../controller/proyectoController");
+const Tareas = require("../controller/tareaController");
+const proyectoController = new Proyecto();
+const tareaController = new Tareas();
 const router = Router();
 
-//Ruta para home
-router.get("/", controller.homeController);
-router.get("/new", controller.newController);
+router.get("/", proyectoController.homeController);
+router.get("/new", proyectoController.newController);
 router.post(
   "/new",
-  [body("titulo").not().isEmpty().trim().escape()],
-  controller.newPostController
+  body("titulo").not().isEmpty().trim().escape(),
+  proyectoController.newPostController
 );
-
-//Rutas para los proyectos
-router.get("/proyecto/:url", controller.proyectoGetController);
-router.get("/proyecto/editar/:id", controller.proyectoGetEditarController);
+router.get("/proyecto/:url", proyectoController.proyectoGetController);
+router.get(
+  "/proyecto/editar/:id",
+  proyectoController.proyectoGetEditarController
+);
 router.post(
   "/proyecto/editar/:id",
   body("titulo").not().isEmpty().trim().escape(),
-  controller.proyectoPostEditarController
+  proyectoController.proyectoPostEditarController
 );
-router.delete("/proyecto/eliminar/:url", controller.proyectoDeleteController);
+router.delete(
+  "/proyecto/eliminar/:url",
+  proyectoController.proyectoDeleteController
+);
+
+router.post(
+  "/tarea/agregar/:url",
+  body("tarea").not().isEmpty().trim().escape(),
+  tareaController.tareaPostController
+);
+
 module.exports = router;

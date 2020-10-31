@@ -1,11 +1,17 @@
 extends ./layout/index
 block principal
-    .contenido-principal
+    
+    .contenido-principal        
         h1=`${nombre} - ${proyecto.titulo}`
-        
+        if(error)
+            p( class="alerta error")= error
+        form.agregar-tarea(action=`/tarea/agregar/${proyecto.url}`, method="post")
+            .campo
+                label(for="tarea") Agregar Tarea:
+                input.nombre-tarea(type="text", id="tarea", name="tarea", placeholder="Añade una tarea...")
+            .campo.enviar
+                input.boton.nueva-tarea(type="submit", value="Añadir")
 
-
-        
         .contenedor-acciones
             a(href=`/proyecto/editar/${proyecto.id}`, class="boton") Editar Proyecto
             button(href="#", class="boton eliminar" id="eliminar" data-url= proyecto.url) Eliminar Proyecto

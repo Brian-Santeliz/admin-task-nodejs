@@ -1,5 +1,5 @@
 const Proyecto = require("../models/Proyectos");
-class Home {
+class Proyectos {
   async homeController(req, res) {
     try {
       const proyectos = await Proyecto.findAll();
@@ -133,4 +133,4 @@ class Home {
     }
   }
 }
-module.exports = Home;
+module.exports = Proyectos;
