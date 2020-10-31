@@ -16,7 +16,7 @@ block principal
             ul
                 if(tareas.length > 0)
                     for tarea of tareas
-                        li(data-id= tarea.id)
+                        li(data-id= tarea.id, id="tarea-li")
                             p #{tarea.tarea}
                             .acciones
                                 if(tarea.estado)
@@ -26,7 +26,10 @@ block principal
                                 i.fas.fa-trash
                 else
                     p.vacio-tareas Este proyecto no tiene tareas
-
+        div
+            h2 Avance del Proyecto
+            #barra.barra-avance
+                .porcentaje#porcentaje
 
 
 

@@ -1,6 +1,6 @@
 import Swal from "sweetalert2";
 import axios from "axios";
-
+import { barra } from "./barra";
 const btn = document.getElementById("eliminar");
 if (btn) {
   btn.addEventListener("click", (e) => {
@@ -49,6 +49,7 @@ if (li) {
         .then(() => {
           const check = e.target;
           check.classList.toggle("completo");
+          barra();
         })
         .catch(() => {
           Swal.fire(
@@ -79,6 +80,7 @@ if (li) {
             .delete(peticion)
             .then((res) => {
               Swal.fire("Eliminado!", `${res.data}`, "success");
+              barra();
               e.target.parentElement.parentElement.remove();
             })
             .catch(() => {
