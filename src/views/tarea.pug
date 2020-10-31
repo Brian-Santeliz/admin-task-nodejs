@@ -16,10 +16,10 @@ block principal
             ul
                 if(tareas.length > 0)
                     for tarea of tareas
-                        li
+                        li(data-id= tarea.id)
                             p #{tarea.tarea}
                             .acciones
-                                if(tarea.length > 0)
+                                if(tarea.estado)
                                     i.far.fa-check-circle.completo
                                 else
                                     i.far.fa-check-circle

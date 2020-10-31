@@ -33,5 +33,6 @@ router.post(
   body("tarea").not().isEmpty().trim().escape(),
   tareaController.tareaPostController
 );
-
+router.patch("/tarea/actualizar/:id", tareaController.tareaPatchController);
+router.delete("/tarea/eliminar/:id", tareaController.tareaDeleteController);
 module.exports = router;

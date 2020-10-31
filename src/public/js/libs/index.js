@@ -42,7 +42,54 @@ if (li) {
   li.addEventListener("click", (e) => {
     const clase = e.target.classList.contains("fa-check-circle");
     if (clase) {
-      console.log("click en la clase");
+      const id = e.target.parentElement.parentElement.dataset.id;
+      const peticion = `${window.location.origin}/tarea/actualizar/${id}`;
+      axios
+        .patch(peticion)
+        .then(() => {
+          const check = e.target;
+          check.classList.toggle("completo");
+        })
+        .catch(() => {
+          Swal.fire(
+            "Ha ocurrido un error",
+            "No se pudo desmarcar este proyecto",
+            "error"
+          );
+        });
+    }
+  });
+  li.addEventListener("click", (e) => {
+    const trash = e.target.classList.contains("fa-trash");
+    if (trash) {
+      const id = e.target.parentElement.parentElement.dataset.id;
+      Swal.fire({
+        title: "¿Estás seguro en eliminar esta tarea?",
+        text: "Despues de eliminar este tarea no se puede recuperar.",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Si, eliminar!",
+        cancelButtonText: "Cancelar",
+      }).then((resul) => {
+        if (resul.isConfirmed) {
+          const peticion = `${location.origin}/tarea/eliminar/${id}`;
+          axios
+            .delete(peticion)
+            .then((res) => {
+              Swal.fire("Eliminado!", `${res.data}`, "success");
+              e.target.parentElement.parentElement.remove();
+            })
+            .catch(() => {
+              Swal.fire(
+                "Ha ocurrido un error",
+                "No se pudo eliminar este tarea",
+                "error"
+              );
+            });
+        }
+      });
     }
   });
 }
