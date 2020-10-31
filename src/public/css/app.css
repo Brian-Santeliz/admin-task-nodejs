@@ -245,6 +245,11 @@ body.index {
     margin: 0 auto 1rem auto;
     text-transform: uppercase;
 }
+.vacio-tareas{
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+}
 .error {
     color: red!important;
     background-color: rgb(255, 201, 201);

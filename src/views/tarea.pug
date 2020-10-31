@@ -12,7 +12,24 @@ block principal
             .campo.enviar
                 input.boton.nueva-tarea(type="submit", value="Añadir")
 
+        .listado-pendientes
+            ul
+                if(tareas.length > 0)
+                    for tarea of tareas
+                        li
+                            p #{tarea.tarea}
+                            .acciones
+                                if(tarea.estado)
+                                    i.far.fa-check-circle.completo
+                                else
+                                    i.far.fa-check-circle
+                                i.fas.fa-trash
+                else
+                    p.vacio-tareas Este proyecto no tiene tareas
+
+
+
+
         .contenedor-acciones
             a(href=`/proyecto/editar/${proyecto.id}`, class="boton") Editar Proyecto
             button(href="#", class="boton eliminar" id="eliminar" data-url= proyecto.url) Eliminar Proyecto
-    pre= helper.pretier(tareas)

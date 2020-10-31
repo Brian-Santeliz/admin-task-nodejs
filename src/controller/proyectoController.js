@@ -60,9 +60,7 @@ class Proyectos {
         where: {
           proyectoId: proyecto.id,
         },
-        include: [{ model: Proyecto }],
       });
-      console.log(tareas);
       if (!proyecto) return res.send("No existe este proyecto");
       res.render("tarea", {
         nombre: "Comienza Agregando Tarea",
