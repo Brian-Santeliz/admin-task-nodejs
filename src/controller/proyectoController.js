@@ -1,4 +1,5 @@
 const Proyecto = require("../models/Proyectos");
+const Tarea = require("../models/Tareas");
 class Proyectos {
   async homeController(req, res) {
     try {
@@ -53,12 +54,21 @@ class Proyectos {
         where: { url },
       });
       const promiseTwo = Proyecto.findAll();
+
       const [proyecto, proyectos] = await Promise.all([promiseOne, promiseTwo]);
+      const tareas = await Tarea.findAll({
+        where: {
+          proyectoId: proyecto.id,
+        },
+        include: [{ model: Proyecto }],
+      });
+      console.log(tareas);
       if (!proyecto) return res.send("No existe este proyecto");
       res.render("tarea", {
         nombre: "Comienza Agregando Tarea",
         proyecto,
         proyectos,
+        tareas,
       });
     } catch (error) {
       console.log(error);
