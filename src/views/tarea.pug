@@ -19,7 +19,7 @@ block principal
                         li
                             p #{tarea.tarea}
                             .acciones
-                                if(tarea.estado)
+                                if(tarea.length > 0)
                                     i.far.fa-check-circle.completo
                                 else
                                     i.far.fa-check-circle

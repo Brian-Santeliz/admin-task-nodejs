@@ -36,3 +36,13 @@ if (btn) {
     });
   });
 }
+
+const li = document.querySelector(".listado-pendientes");
+if (li) {
+  li.addEventListener("click", (e) => {
+    const clase = e.target.classList.contains("fa-check-circle");
+    if (clase) {
+      console.log("click en la clase");
+    }
+  });
+}

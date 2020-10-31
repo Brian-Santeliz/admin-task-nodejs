@@ -8,13 +8,18 @@ class Tareas {
       const proyecto = await Proyecto.findOne({
         where: { url },
       });
+
       if (!tarea) {
         const proyectos = await Proyecto.findAll();
+        const tareas = await Tarea.findAll({
+          where: { proyectoId: proyecto.id },
+        });
         res.render("tarea", {
           error: "Agrega una tarea",
           proyecto,
           nombre: "Comienza Agregando Tarea",
           proyectos,
+          tareas,
         });
         return;
       }
