@@ -1,6 +1,6 @@
 import Swal from "sweetalert2";
 export const barra = () => {
-  const tareas = document.querySelectorAll("#tarea-li").length;
+  const tareas = document.querySelectorAll(".tarea-li").length;
   if (tareas) {
     const completadas = document.querySelectorAll("i.completo").length;
     const porcentaje = document.getElementById("porcentaje");

@@ -2,6 +2,7 @@ import Swal from "sweetalert2";
 import axios from "axios";
 import { barra } from "./barra";
 const btn = document.getElementById("eliminar");
+
 if (btn) {
   btn.addEventListener("click", (e) => {
     const url = e.target.dataset.url;
@@ -79,9 +80,11 @@ if (li) {
           axios
             .delete(peticion)
             .then((res) => {
-              Swal.fire("Eliminado!", `${res.data}`, "success");
-              barra();
-              e.target.parentElement.parentElement.remove();
+              if (res.status === 200) {
+                Swal.fire("Eliminado!", `${res.data}`, "success");
+                e.target.parentElement.parentElement.remove();
+                barra();
+              }
             })
             .catch(() => {
               Swal.fire(

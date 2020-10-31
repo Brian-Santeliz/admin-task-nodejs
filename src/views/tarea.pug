@@ -16,7 +16,7 @@ block principal
             ul
                 if(tareas.length > 0)
                     for tarea of tareas
-                        li(data-id= tarea.id, id="tarea-li")
+                        li.tarea-li(data-id= tarea.id)
                             p #{tarea.tarea}
                             .acciones
                                 if(tarea.estado)
