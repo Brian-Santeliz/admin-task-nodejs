@@ -13,6 +13,7 @@ class Login {
         password,
       });
       res.redirect("/login");
+      return;
     } catch (e) {
       req.flash(
         "error",
@@ -27,7 +28,7 @@ class Login {
     }
   }
   loginGetIniciar(req, res) {
-    res.render("iniciar", {
+    res.render("login", {
       nombre: "Inicia Sessión Administra tus tareas",
     });
   }

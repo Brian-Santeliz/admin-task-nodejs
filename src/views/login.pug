@@ -5,8 +5,9 @@ html(lang="en")
     body.login
         .contenedor-formulario
             h1 Iniciar Session
-        
-            form(action="/iniciar" method="POST" class="caja caja-login" id="formulario")
+            if(mensaje.error)
+                p.alerta.error= mensaje.error
+            form(action="/login" method="POST" class="caja caja-login" id="formulario")
                 .campo
                     label(for="email") Email
                     input(type="email", name="email", value= email id="email", placeholder="Escribe tu email", required)

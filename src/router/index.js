@@ -1,5 +1,6 @@
 const { Router } = require("express");
 const { body } = require("express-validator");
+const passport = require("passport");
 const Proyecto = require("../controller/proyectoController");
 const Tareas = require("../controller/tareaController");
 const Login = require("../controller/loginController");
@@ -42,4 +43,13 @@ router.delete("/tarea/eliminar/:id", tareaController.tareaDeleteController);
 router.get("/registrar", loginController.loginGetRegistrar);
 router.post("/registrar", loginController.loginPostRegistrar);
 router.get("/login", loginController.loginGetIniciar);
+router.post(
+  "/login",
+  passport.authenticate("local", {
+    successRedirect: "/",
+    failureRedirect: "/login",
+    failureFlash: true,
+    badRequestMessage: "Se necesita el email y password.",
+  })
+);
 module.exports = router;
