@@ -4,14 +4,9 @@ html(lang="en")
         include ./partials/header
     body.login
         .contenedor-formulario
-            h1 Crear una cuenta
-            if(mensajeError)
-                .errores
-                    for categoria of Object.keys(mensajeError)
-                        for erro of mensajeError[categoria]
-                            .alerta(class=`${categoria}`)
-                                p= erro
-            form(action="/registrar" method="POST" class="caja caja-login" id="formulario")
+            h1 Iniciar Session
+        
+            form(action="/iniciar" method="POST" class="caja caja-login" id="formulario")
                 .campo
                     label(for="email") Email
                     input(type="email", name="email", value= email id="email", placeholder="Escribe tu email", required)
@@ -20,8 +15,8 @@ html(lang="en")
                     input(type="password", name="password", value= password id="password", placeholder="Escribe tu password", required)
 
                 .campo.enviar
-                    input(class="boton", value="Registrarme", type="submit")
+                    input(class="boton", value="Iniciar Session", type="submit")
                 .campo
-                    a(href="/login") ¿Ya tienes cuenta? Inicia Sesión
+                    a(href="/registrar") ¿No tienes cuenta? Registrate aqui
 
      

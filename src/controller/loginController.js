@@ -26,6 +26,11 @@ class Login {
       });
     }
   }
+  loginGetIniciar(req, res) {
+    res.render("iniciar", {
+      nombre: "Inicia Sessión Administra tus tareas",
+    });
+  }
 }
 
 module.exports = Login;

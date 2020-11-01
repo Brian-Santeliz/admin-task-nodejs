@@ -1,6 +1,6 @@
 const Sequelize = require("sequelize");
 const database = require("../config");
-const Proyecto = require("./Proyectos");
+const Proyectos = require("./Proyectos");
 const bcrypt = require("bcrypt");
 
 const Usuario = database.define(
@@ -53,5 +53,5 @@ const Usuario = database.define(
 );
 
 /* 1 usuario tiene muchos(m) Proyectos 1:m */
-Usuario.hasMany(Proyecto);
+Usuario.hasMany(Proyectos);
 module.exports = Usuario;

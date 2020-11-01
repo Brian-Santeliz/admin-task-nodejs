@@ -41,4 +41,5 @@ router.delete("/tarea/eliminar/:id", tareaController.tareaDeleteController);
 //RUTA PARA LOGIN Y REGISTER
 router.get("/registrar", loginController.loginGetRegistrar);
 router.post("/registrar", loginController.loginPostRegistrar);
+router.get("/login", loginController.loginGetIniciar);
 module.exports = router;
