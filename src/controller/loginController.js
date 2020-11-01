@@ -6,8 +6,8 @@ class Login {
     });
   }
   async loginPostRegistrar(req, res) {
+    const { email, password } = req.body;
     try {
-      const { email, password } = req.body;
       await Usuario.create({
         email,
         password,
@@ -19,8 +19,10 @@ class Login {
         e.errors.map((e) => e.message)
       );
       res.render("registrar", {
-        nombre: "Registrate En Task Manager",
         mensajeError: req.flash(),
+        nombre: "Registrate En Task Manager",
+        email,
+        password,
       });
     }
   }

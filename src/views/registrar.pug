@@ -14,10 +14,10 @@ html(lang="en")
             form(action="/registrar" method="POST" class="caja caja-login" id="formulario")
                 .campo
                     label(for="email") Email
-                    input(type="email", name="email", id="email", placeholder="Escribe tu email",)
+                    input(type="email", name="email", value= email id="email", placeholder="Escribe tu email", required)
                 .campo
                     label(for="password") Password
-                    input(type="password", name="password", id="password", placeholder="Escribe tu password")
+                    input(type="password", name="password", value= password id="password", placeholder="Escribe tu password", required)
 
                 .campo.enviar
                     input(class="boton", value="Enviar", type="submit")
