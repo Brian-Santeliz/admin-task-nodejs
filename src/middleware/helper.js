@@ -8,6 +8,7 @@ class Midleware extends Helper {
   helper(req, res, next) {
     const controlador = new Helper();
     res.locals.helper = controlador;
+    // res.locals.mensaje = req.flash();
     next();
   }
 }

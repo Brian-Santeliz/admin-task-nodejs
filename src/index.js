@@ -3,6 +3,8 @@ const morgan = require("morgan");
 const dotenv = require("dotenv");
 const path = require("path");
 const flash = require("connect-flash");
+const session = require("express-session");
+const cookieParser = require("cookie-parser");
 const routerHome = require("./router/");
 const database = require("./config");
 const Midleware = require("./middleware/helper");
@@ -21,6 +23,14 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(morgan("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(
+  session({
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: false,
+  })
+);
+app.use(cookieParser());
 app.use(flash());
 const middleware = new Midleware();
 app.use(middleware.helper);

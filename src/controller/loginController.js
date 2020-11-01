@@ -14,10 +14,13 @@ class Login {
       });
       res.redirect("/login");
     } catch (e) {
-      const errores = e.errors;
+      req.flash(
+        "error",
+        e.errors.map((e) => e.message)
+      );
       res.render("registrar", {
         nombre: "Registrate En Task Manager",
-        errores,
+        mensajeError: req.flash(),
       });
     }
   }
