@@ -1,3 +1,4 @@
+const passport = require("../config/passport");
 const Usuario = require("../models/Usuarios");
 class Login {
   loginGetRegistrar(req, res) {
@@ -31,6 +32,18 @@ class Login {
     res.render("login", {
       nombre: "Inicia Sessión Administra tus tareas",
     });
+  }
+  loginPostIniciar(req, res, next) {
+    passport.authenticate("local", {
+      successRedirect: "/",
+      failureRedirect: "/login",
+      failureFlash: true,
+      badRequestMessage: "El email y password son necesarios.",
+    })(req, res, next);
+  }
+  loginGetLogout(req, res) {
+    req.session.destroy();
+    res.redirect("/");
   }
 }
 
