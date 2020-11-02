@@ -10,7 +10,7 @@ block principal
                 label(for="tarea") Agregar Tarea:
                 input.nombre-tarea(type="text", id="tarea", name="tarea", placeholder="Añade una tarea...")
             .campo.enviar
-                input.boton.nueva-tarea(type="submit", value="Añadir")
+                input.boton.nueva-tarea.agregar(type="submit", value="Añadir")
 
         .listado-pendientes
             ul
@@ -34,5 +34,5 @@ block principal
 
 
         .contenedor-acciones
-            a(href=`/proyecto/editar/${proyecto.id}`, class="boton") Editar Proyecto
-            button(href="#", class="boton eliminar" id="eliminar" data-url= proyecto.url) Eliminar Proyecto
+            a(href=`/proyecto/editar/${proyecto.id}`, class="boton") Editar 
+            button(href="#", class="boton eliminar" id="eliminar" data-url= proyecto.url) Eliminar 

@@ -74,7 +74,7 @@ body {
    justify-content: flex-end;
 }
 .boton {
-    background-color: #FDD835;
+    background-color: #455cc3;
     text-align: center;
     transition: background-color .5s ease-in-out;
     padding: 2rem;
@@ -82,7 +82,8 @@ body {
     font-weight: 900;
     width: 250px;
     margin:0  auto;
-
+    color:#fff !important;
+    border-radius: 1em;
     display: flex;
     align-items: center;
     line-height: 0;
@@ -94,25 +95,35 @@ body {
 
 .boton:hover {
     cursor: pointer;
-    background-color: rgb(219, 184, 29)!important;
+    background-color: #4062fb!important;
 }
 .boton.eliminar {
     margin-top: 1rem;
-    float: right;
-    background-color: red!important;
-    color: white;
+    background-color: rgb(245, 45, 45);;
+}
+.eliminar:hover{
+
+    background: rgb(255, 75, 75) !important;
 }
 .campo a {
     color: black;
     text-decoration: none;
 }
-
+.agregar{
+    background: #0087ff 
+}
+.agregar:hover{
+    background: #47a8fd !important;
+}
+.home-h1{
+    color: #0a3e6d;
+}
 /** Barra **/
 body.index {
     height: 100vh;
 }
 .barra {
-    background-color: #455A64;
+    background-color: #1c2f38;
     padding: 1rem;
     height: 60px;
     display: flex;
@@ -128,11 +139,20 @@ body.index {
     color: white;
     text-decoration: none;
 }
+.cerrar{
+    border-radius: 1em;
+    padding: 9px;
+    background: rgb(245, 45, 45);
+    font-weight: bold;
+}
+.cerrar:hover{
+    background: rgb(255, 75, 75);
+}
 /*** sidebar**/
 .contenedor-proyectos {
     height: 100%;
     max-width: 300px;
-    background-color: #607D8B;
+    background-color: #2d3240;
     padding-top: 1rem;
 }
 .panel {
@@ -145,7 +165,7 @@ body.index {
     text-decoration: none;
 }
 .panel h2 {
-    color: #FDD835;
+    color: #1787f0;
     font-weight: 900;
     text-align: center;
     font-size: 2rem;
@@ -168,7 +188,7 @@ body.index {
     margin-bottom: 1rem;
 }
 .lista-proyectos ul li a:hover {
-    color: #FDD835;
+    color: #76bbff;
 }
 /** Contenido Principal */
 .contenedor {

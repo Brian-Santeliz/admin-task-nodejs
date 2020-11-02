@@ -5,7 +5,7 @@ html(lang="en")
     body
         include ../partials/navbar
         main.contenedor
-            aside.contenedor-proyectos 
+            sidebar.contenedor-proyectos 
                 .panel.crear-proyecto
                     a(href="/new" class="boton") Nuevo Proyecto
                         span +
@@ -18,5 +18,4 @@ html(lang="en")
                                     a(href=`/proyecto/${proyecto.url}`)= proyecto.titulo
                        
             block principal
-            //- pre= helper.pretier(proyectos)
         script(src="/build/app.js")
