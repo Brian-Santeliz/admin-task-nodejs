@@ -40,6 +40,7 @@ class Login {
       failureFlash: true,
       badRequestMessage: "El email y password son necesarios.",
     })(req, res, next);
+    req.flash("autenticado", "Logueado correctamente!");
   }
   loginGetLogout(req, res) {
     req.session.destroy();

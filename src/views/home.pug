@@ -2,3 +2,5 @@ extends ./layout/index
 block principal
     .contenido-principal
        h1.home-h1= nombre
+       if(mensaje.autenticado)
+        p.autenticado= mensaje.autenticado

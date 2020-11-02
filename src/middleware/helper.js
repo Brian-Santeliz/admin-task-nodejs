@@ -1,6 +1,7 @@
 class Midleware {
   helper(req, res, next) {
     res.locals.mensaje = req.flash();
+    res.locals.autenticado = req.flash();
     res.locals.usuario = req.user;
     next();
   }
