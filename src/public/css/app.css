@@ -8,11 +8,12 @@ body {
     font-family: 'Lato', sans-serif;
     min-height: 100vh;
     overflow: hidden;
+    background: #eee;
 }
 /** Login **/
 .login,
 .crear-cuenta {
-    background: #213036;
+    background: #091e27;
 }
 .contenedor-formulario {
     display: flex;
@@ -227,7 +228,7 @@ body.index {
 
 /** Listado Pendientes **/
 .listado-pendientes {
-    background-color: #F2F2F2;
+    background-color: #e4e4e4;
     max-width: 800px;
     width: 90%;
     margin: 2rem auto 0 auto;
