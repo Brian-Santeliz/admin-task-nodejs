@@ -1,9 +1,5 @@
-const Helper = require("../helpers/prettier");
-
-class Midleware extends Helper {
+class Midleware {
   helper(req, res, next) {
-    const controlador = new Helper();
-    res.locals.helper = controlador;
     res.locals.mensaje = req.flash();
     res.locals.usuario = req.user;
     next();

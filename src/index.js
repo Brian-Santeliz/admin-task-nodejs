@@ -9,6 +9,7 @@ const passport = require("passport");
 const routerHome = require("./router/");
 const database = require("./config");
 const Midleware = require("./middleware/helper");
+const store = require("./config/session");
 require("./models/Proyectos");
 require("./models/Tareas");
 require("./models/Usuarios");
@@ -29,6 +30,7 @@ app.use(
     secret: process.env.SECRET,
     resave: false,
     saveUninitialized: false,
+    store,
   })
 );
 app.use(cookieParser());

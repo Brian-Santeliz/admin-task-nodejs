@@ -225,7 +225,9 @@ body.index {
     border-radius: 1em;
     transition: background-color .5s ease-in-out;
 }
-
+.vacio{
+    text-transform: uppercase;
+}
 /** Listado Pendientes **/
 .listado-pendientes {
     background-color: #e4e4e4;

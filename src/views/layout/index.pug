@@ -12,10 +12,13 @@ html(lang="en")
                 .panel.lista-proyectos
                     h2 Proyectos 
                     ul(class="proyectos" id="proyectos")
-                        if(proyectos)
+                        if(proyectos.length> 0)
                             for proyecto of proyectos
                                 li
                                     a(href=`/proyecto/${proyecto.url}`)= proyecto.titulo
-                       
+                        else
+                            li 
+                                a.vacio Aun no tienes proyectos
+                                
             block principal
         script(src="/build/app.js")
