@@ -3,6 +3,7 @@ const Proyecto = require("../models/Proyectos");
 class Tareas {
   async tareaPostController(req, res, next) {
     try {
+      const usuarioId = res.locals.usuario.id;
       const { url } = req.params;
       const { tarea } = req.body;
       const proyecto = await Proyecto.findOne({
@@ -10,7 +11,9 @@ class Tareas {
       });
 
       if (!tarea) {
-        const proyectos = await Proyecto.findAll();
+        const proyectos = await Proyecto.findAll({
+          where: { usuarioId },
+        });
         const tareas = await Tarea.findAll({
           where: { proyectoId: proyecto.id },
         });

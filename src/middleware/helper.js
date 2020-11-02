@@ -5,6 +5,7 @@ class Midleware extends Helper {
     const controlador = new Helper();
     res.locals.helper = controlador;
     res.locals.mensaje = req.flash();
+    res.locals.usuario = req.user;
     next();
   }
   authMiddleware(req, res, next) {

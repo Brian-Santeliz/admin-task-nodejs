@@ -3,7 +3,10 @@ const Tarea = require("../models/Tareas");
 class Proyectos {
   async homeController(req, res) {
     try {
-      const proyectos = await Proyecto.findAll();
+      const usuarioId = res.locals.usuario.id;
+      const proyectos = await Proyecto.findAll({
+        where: { usuarioId },
+      });
       res.render("home", {
         nombre: "Administra tus proyectos",
         proyectos,
@@ -14,7 +17,10 @@ class Proyectos {
   }
   async newController(req, res) {
     try {
-      const proyectos = await Proyecto.findAll();
+      const usuarioId = res.locals.usuario.id;
+      const proyectos = await Proyecto.findAll({
+        where: { usuarioId },
+      });
       res.render("new", {
         nombre: "Nuevo Proyecto",
         proyectos,
@@ -25,7 +31,11 @@ class Proyectos {
   }
   async newPostController(req, res) {
     try {
-      const proyectos = await Proyecto.findAll();
+      const usuarioId = res.locals.usuario.id;
+      const proyectos = await Proyecto.findAll({
+        where: { usuarioId },
+      });
+
       const { titulo } = req.body;
       let error = [];
       if (!titulo) {
@@ -41,6 +51,7 @@ class Proyectos {
       }
       await Proyecto.create({
         titulo,
+        usuarioId,
       });
       res.redirect("/");
     } catch (error) {
@@ -49,11 +60,14 @@ class Proyectos {
   }
   async proyectoGetController(req, res) {
     try {
+      const usuarioId = res.locals.usuario.id;
       const { url } = req.params;
       const promiseOne = Proyecto.findOne({
         where: { url },
       });
-      const promiseTwo = Proyecto.findAll();
+      const promiseTwo = Proyecto.findAll({
+        where: { usuarioId },
+      });
 
       const [proyecto, proyectos] = await Promise.all([promiseOne, promiseTwo]);
       const tareas = await Tarea.findAll({
@@ -75,12 +89,15 @@ class Proyectos {
 
   async proyectoGetEditarController(req, res) {
     try {
+      const usuarioId = res.locals.usuario.id;
       const { id } = req.params;
       const [proyecto, proyectos] = await Promise.all([
         Proyecto.findOne({
           where: { id },
         }),
-        Proyecto.findAll(),
+        Proyecto.findAll({
+          where: { usuarioId },
+        }),
       ]);
       res.render("new", {
         nombre: `Editar Proyecto - ${proyecto.titulo}`,
@@ -93,6 +110,8 @@ class Proyectos {
   }
 
   async proyectoPostEditarController(req, res) {
+    const usuarioId = res.locals.usuario.id;
+
     try {
       const { id } = req.params;
       const { titulo } = req.body;
@@ -101,7 +120,9 @@ class Proyectos {
         Proyecto.findOne({
           where: { id },
         }),
-        Proyecto.findAll(),
+        Proyecto.findAll({
+          where: { usuarioId },
+        }),
       ]);
       if (!titulo) {
         error.push({ error: "Agrega el titulo al proyecto" });

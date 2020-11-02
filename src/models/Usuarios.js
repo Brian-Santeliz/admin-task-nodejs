@@ -55,6 +55,5 @@ const Usuario = database.define(
 Usuario.prototype.comparasPassword = async (password, passwordEncriptado) => {
   return await bcrypt.compare(password, passwordEncriptado);
 };
-/* 1 usuario tiene muchos(m) Proyectos 1:m */
-// Usuario.hasMany(Proyectos);
+Usuario.hasMany(Proyectos);
 module.exports = Usuario;
