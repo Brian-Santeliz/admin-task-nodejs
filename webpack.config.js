@@ -1,6 +1,6 @@
 const path = require("path");
 module.exports = {
-  mode: "development",
+  mode: "production",
   watch: true,
   devtool: "inline-cheap-source-map",
   watchOptions: {
