@@ -12,13 +12,5 @@ class Midleware {
     }
     next();
   }
-  sessionActiva(req, res, next) {
-    const sessionActiva = req.isAuthenticated();
-    if (sessionActiva) {
-      res.redirect("/");
-      return;
-    }
-    next();
-  }
 }
 module.exports = Midleware;

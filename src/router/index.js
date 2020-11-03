@@ -57,13 +57,9 @@ router.delete(
   tareaController.tareaDeleteController
 );
 
-router.get("/registrar", auth.sessionActiva, loginController.loginGetRegistrar);
-router.post(
-  "/registrar",
-  auth.sessionActiva,
-  loginController.loginPostRegistrar
-);
-router.get("/login", auth.sessionActiva, loginController.loginGetIniciar);
-router.post("/login", auth.sessionActiva, loginController.loginPostIniciar);
-router.get("/logout", auth.sessionActiva, loginController.loginGetLogout);
+router.get("/registrar", loginController.loginGetRegistrar);
+router.post("/registrar", loginController.loginPostRegistrar);
+router.get("/login", loginController.loginGetIniciar);
+router.post("/login", loginController.loginPostIniciar);
+router.get("/logout", loginController.loginGetLogout);
 module.exports = router;
