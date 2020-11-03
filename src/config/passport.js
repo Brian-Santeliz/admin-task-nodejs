@@ -16,7 +16,7 @@ passport.use(
           where: { email },
         });
         if (!userFind) {
-          return done(null, false, { message: "Usuario no encontrado." });
+          return done(null, false, { message: "Este usuario no existe." });
         }
         const pass = await userFind.comparasPassword(
           password,

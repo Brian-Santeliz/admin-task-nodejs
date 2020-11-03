@@ -155,6 +155,9 @@ class Proyectos {
       const response = await Proyecto.destroy({
         where: { url },
       });
+      await Tarea.destroy({
+        where: { proyectoId: null },
+      });
       if (!response) return next();
       res.status(200).json("Proyecto eliminado correctamente");
     } catch (error) {

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start":"node src/",
+    "start": "node src/",
     "dev": "concurrently \"npm run watch\" \"npm run nodemon\"",
     "nodemon": "nodemon src/",
     "watch": "webpack"
@@ -22,7 +22,10 @@
     "express-mysql-session": "^2.1.4",
     "express-session": "^1.17.1",
     "express-validator": "^6.6.1",
+    "html-to-text": "^6.0.0",
+    "juice": "^7.0.0",
     "mysql2": "^2.2.5",
+    "nodemailer": "^6.4.14",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "pug": "^3.0.0",
