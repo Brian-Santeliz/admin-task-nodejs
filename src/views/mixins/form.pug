@@ -4,4 +4,4 @@ mixin form(proyecto={})
             label(for="nombre") Nombre del Proyecto:
             input(value=`${proyecto.titulo || ''}`, type="text" id="nombre", name="titulo" placeholder="Escribe el titulo...", )
         .campo.enviar
-            input(type="submit", value=`${proyecto.titulo ? 'Actulizar proyecto' : 'Agregar proyecto'}`, class="boton")
+            input(type="submit", value=`${proyecto.titulo ? 'Actualizar proyecto' : 'Agregar proyecto'}`, class="boton")
