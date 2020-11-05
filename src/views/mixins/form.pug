@@ -1,5 +1,5 @@
 mixin form(proyecto={})
-    form(action=`${proyecto.id ? `/proyecto/editar/${proyecto.id}` : "/new"}` class="agregar-proyecto" method="POST")
+    form(action=`${proyecto.id ? `/proyecto/editar/${proyecto.id}` : "/nuevo"}` class="agregar-proyecto" method="POST")
         .campo
             label(for="nombre") Nombre del Proyecto:
             input(value=`${proyecto.titulo || ''}`, type="text" id="nombre", name="titulo" placeholder="Escribe el titulo...", )

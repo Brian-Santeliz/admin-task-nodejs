@@ -11,12 +11,12 @@ const auth = new Middleware();
 const router = Router();
 
 router.get("/", auth.authMiddleware, proyectoController.homeController);
-router.get("/new", auth.authMiddleware, proyectoController.newController);
+router.get("/nuevo", auth.authMiddleware, proyectoController.nuevoController);
 router.post(
-  "/new",
+  "/nuevo",
   auth.authMiddleware,
   body("titulo").not().isEmpty().trim().escape(),
-  proyectoController.newPostController
+  proyectoController.nuevoPostController
 );
 router.get(
   "/proyecto/:url",

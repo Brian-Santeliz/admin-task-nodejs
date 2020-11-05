@@ -67,7 +67,7 @@ if (li) {
       const id = e.target.parentElement.parentElement.dataset.id;
       Swal.fire({
         title: "¿Estás seguro en eliminar esta tarea?",
-        text: "Despues de eliminar este tarea no se puede recuperar.",
+        text: "Despues de eliminar esta tarea no se puede recuperar.",
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",

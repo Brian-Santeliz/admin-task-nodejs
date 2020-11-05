@@ -15,13 +15,13 @@ class Proyectos {
       console.log(error);
     }
   }
-  async newController(req, res) {
+  async nuevoController(req, res) {
     try {
       const usuarioId = res.locals.usuario.id;
       const proyectos = await Proyecto.findAll({
         where: { usuarioId },
       });
-      res.render("new", {
+      res.render("nuevo", {
         nombre: "Nuevo Proyecto",
         proyectos,
       });
@@ -29,7 +29,7 @@ class Proyectos {
       console.log(error);
     }
   }
-  async newPostController(req, res) {
+  async nuevoPostController(req, res) {
     try {
       const usuarioId = res.locals.usuario.id;
       const proyectos = await Proyecto.findAll({
@@ -42,7 +42,7 @@ class Proyectos {
         error.push({ error: "Agrega el titulo al proyecto" });
       }
       if (error.length > 0) {
-        res.render("new", {
+        res.render("nuevo", {
           nombre: "Nuevo Proyecto",
           error,
           proyectos,
@@ -99,7 +99,7 @@ class Proyectos {
           where: { usuarioId },
         }),
       ]);
-      res.render("new", {
+      res.render("nuevo", {
         nombre: `Editar Proyecto - ${proyecto.titulo}`,
         proyecto,
         proyectos,
@@ -128,7 +128,7 @@ class Proyectos {
         error.push({ error: "Agrega el titulo al proyecto" });
       }
       if (error.length > 0) {
-        res.render("new", {
+        res.render("nuevo", {
           nombre: `Editar Proyecto - ${proyecto.titulo}`,
           error,
           proyectos,

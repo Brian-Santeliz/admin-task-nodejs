@@ -3,7 +3,7 @@ const Usuario = require("../models/Usuarios");
 class Login {
   loginGetRegistrar(req, res) {
     res.render("registrar", {
-      nombre: "Registrate En Task Manager",
+      nombre: "Regístrate En Task Manager",
     });
   }
   async loginPostRegistrar(req, res) {
@@ -22,7 +22,7 @@ class Login {
       );
       res.render("registrar", {
         mensajeError: req.flash(),
-        nombre: "Registrate En Task Manager",
+        nombre: "Regístrate En Task Manager",
         email,
         password,
       });
@@ -30,7 +30,7 @@ class Login {
   }
   loginGetIniciar(req, res) {
     res.render("login", {
-      nombre: "Inicia Sessión Administra tus tareas",
+      nombre: "Inicia Sesión Administra tus tareas",
     });
   }
   loginPostIniciar(req, res, next) {
