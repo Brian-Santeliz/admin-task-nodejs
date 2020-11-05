@@ -8,7 +8,7 @@ if (btn) {
     const url = e.target.dataset.url;
     Swal.fire({
       title: "¿Estás seguro en eliminar este proyecto?",
-      text: "Despues de eliminar este proyecto no se puede recuperar.",
+      text: "Después de eliminar este proyecto no se puede recuperar.",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
@@ -67,7 +67,7 @@ if (li) {
       const id = e.target.parentElement.parentElement.dataset.id;
       Swal.fire({
         title: "¿Estás seguro en eliminar esta tarea?",
-        text: "Despues de eliminar esta tarea no se puede recuperar.",
+        text: "Después de eliminar esta tarea no se puede recuperar.",
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
